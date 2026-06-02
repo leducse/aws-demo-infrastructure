@@ -76,6 +76,8 @@ GitHub Actions in [`.github/workflows/`](.github/workflows/):
 - **cdk-synth.yml** — every PR: install, build, `cdk synth` (validates CloudFormation)
 - **cdk-deploy.yml** — manual `workflow_dispatch` with OIDC to AWS (see walkthrough)
 
+Workflow files are committed locally. To push them to GitHub, use a PAT with the **`workflow`** scope (or SSH). A standard OAuth token without that scope will reject `.github/workflows/*` updates.
+
 ## Cost expectation
 
 Small demo usage is typically **under a few dollars/month** (S3 + Secrets Manager + occasional Lambda + Bedrock tokens). Tear down with `cdk destroy` when idle.
