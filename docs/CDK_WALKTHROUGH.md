@@ -84,10 +84,17 @@ CloudFormation may show the initial placeholder in the template; rotate or overw
 
 ### OIDC setup (one-time, in AWS)
 
-1. Create an IAM OIDC identity provider for `token.actions.githubusercontent.com`.
-2. Create a role with `sts:AssumeRoleWithWebIdentity` trusting your repo.
-3. Attach policies: CloudFormation, S3 (CDK bootstrap bucket), IAM pass-role, Lambda, API Gateway, Secrets Manager, S3 docs bucket.
-4. Add GitHub repo secrets: `AWS_ROLE_ARN`, `AWS_REGION`.
+Run from a machine with AWS CLI + `gh` (repo admin):
+
+```bash
+./scripts/setup-github-oidc.sh
+```
+
+This creates the `token.actions.githubusercontent.com` OIDC provider, IAM role
+`GitHubActionsPortfolioAwsDemosDeploy` (trust limited to `leducse/portfolio-aws-demos`),
+attaches CDK-friendly policies, and sets GitHub secrets `AWS_ROLE_ARN` and `AWS_REGION`.
+
+Deploy manually: **Actions → CDK Deploy → Run workflow**.
 
 See [GitHub docs: configuring OpenID Connect in AWS](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
