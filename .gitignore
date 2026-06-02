@@ -1,0 +1,14 @@
+node_modules/
+infra/node_modules/
+cdk.out/
+infra/cdk.out/
+infra/dist/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
