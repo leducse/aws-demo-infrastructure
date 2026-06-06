@@ -4,7 +4,7 @@ set -euo pipefail
 
 ACCOUNT_ID="${AWS_ACCOUNT_ID:-$(aws sts get-caller-identity --query Account --output text)}"
 REGION="${AWS_REGION:-us-east-1}"
-REPO="${GITHUB_REPO:-leducse/portfolio-aws-demos}"
+REPO="${GITHUB_REPO:-leducse/aws-demo-infrastructure}"
 ROLE_NAME="${ROLE_NAME:-GitHubActionsPortfolioAwsDemosDeploy}"
 OIDC_URL="https://token.actions.githubusercontent.com"
 # GitHub's documented thumbprint (also fetchable via openssl against token.actions.githubusercontent.com)

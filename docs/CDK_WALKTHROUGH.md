@@ -27,7 +27,7 @@ flowchart LR
 | `cdk deploy` | Uploads Lambda assets, applies the template, waits for `CREATE_COMPLETE` |
 | `cdk destroy` | Deletes stack resources (respects `RemovalPolicy`) |
 
-Run these from `portfolio-aws-demos/infra/`.
+Run these from `aws-demo-infrastructure/infra/`.
 
 ## Resource-by-resource map
 
@@ -91,7 +91,7 @@ Run from a machine with AWS CLI + `gh` (repo admin):
 ```
 
 This creates the `token.actions.githubusercontent.com` OIDC provider, IAM role
-`GitHubActionsPortfolioAwsDemosDeploy` (trust limited to `leducse/portfolio-aws-demos`),
+`GitHubActionsPortfolioAwsDemosDeploy` (trust limited to `leducse/aws-demo-infrastructure`),
 attaches CDK-friendly policies, and sets GitHub secrets `AWS_ROLE_ARN` and `AWS_REGION`.
 
 Deploy manually: **Actions → CDK Deploy → Run workflow**.
